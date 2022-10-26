@@ -47,7 +47,7 @@
   </div>
 </nav><br>
 
-<% User user =  (User)session.getAttribute("userData"); %>
+
 
 <h3 style="margin-left: 200px; font-style: italic;">Welcome ${userData.getFirstName() } ${userData.getLastName() }</h3><br>
 
@@ -63,10 +63,10 @@
   
    <tbody>
     <tr>
-      <th scope="row"><%= user.getUsername()%></th>
-      <td><%= user.getFirstName() %></td>
-      <td><%= user.getLastName() %></td>
-      <td><%= user.getEmail() %></td>
+      <th scope="row">${userData.getUsername() }</th>
+      <td>${userData.getFirstName()}</td>
+      <td>${userData.getLastName()}</td>
+      <td>${userData.getEmail()}</td>
     </tr>
   </tbody>
  <%--  <tbody>
