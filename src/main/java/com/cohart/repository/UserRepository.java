@@ -122,5 +122,16 @@ public User validateUserCredentials(String username, String password) throws Exc
 		return users;
 		
 	}
+	
+	public void delete(String username) throws Exception {
+		
+		Connection conn = DBUtils.getConnection();	
+		PreparedStatement pstmt =  conn.prepareStatement("delete from user where username = ?");
+		
+		pstmt.setString(1, username);
+		
+		pstmt.execute();
+		
+	}
 
 }

@@ -34,4 +34,11 @@ public class UserService {
 		return users;
 	}
 	
+	public void deleteUser(String username) throws Exception {
+		
+		UserRepository userRepository = new UserRepository();
+		
+		userRepository.delete(username);
+	}
+	
 }

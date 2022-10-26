@@ -1,16 +1,13 @@
 package com.cohart.controller;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cohart.db.DBUtils;
 import com.cohart.repository.UserRepository;
 import com.cohart.service.UserService;
 import com.cohart.to.User;
@@ -273,4 +270,24 @@ public class UserController {
 //		}	
 	}
 	
+	@RequestMapping("delete/{uid}")
+	public ModelAndView deleteUser(@PathVariable String uid) throws Exception {
+		
+		System.out.println("the userid is "+uid);
+		
+		UserService userService = new UserService();
+		
+		userService.deleteUser(uid);
+		
+		List<User> users = userService.getAllUsers();
+		
+		ModelAndView modelAndView = new ModelAndView("masterUserPage");
+		
+		modelAndView.addObject("allUsers", users);
+		
+		return modelAndView;
+		
+		
+		
+	}
 }
