@@ -85,6 +85,7 @@
 				<th scope="col">Last Name</th>
 				<th scope="col">Email</th>
 				<th scope="col">Delete</th>
+				<th scope="col">Update</th>
 			</tr>
 
 		</thead>
@@ -98,6 +99,7 @@
 				<td><%=users.get(i).getLastName()%></td>
 				<td><%=users.get(i).getEmail()%></td>
 				<td><a href="/delete/<%=users.get(i).getUsername()%>">delete</a></td>
+				<td><a href="/update/<%=users.get(i).getUsername()%>">update</a></td>
 			</tr>
 			<%
 			}

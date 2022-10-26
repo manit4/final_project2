@@ -285,9 +285,26 @@ public class UserController {
 		
 		modelAndView.addObject("allUsers", users);
 		
+		return modelAndView;	
+	}
+	
+	@RequestMapping("/update/{username}")
+	public ModelAndView updateUser(@PathVariable String username) throws Exception {
+		
+		System.out.println("inside updateUser "+username);
+		
+		ModelAndView modelAndView = new ModelAndView("updateUserPage");
+		
+		 UserService userService = new UserService();
+		 
+		 User user = userService.getUser(username);
+		 
+		modelAndView.addObject("userData", user);
+		 
 		return modelAndView;
 		
 		
-		
 	}
+	
+	
 }

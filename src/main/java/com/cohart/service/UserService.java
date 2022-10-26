@@ -41,4 +41,13 @@ public class UserService {
 		userRepository.delete(username);
 	}
 	
+	public User getUser(String username) throws Exception {
+		
+		UserRepository userRepository = new UserRepository();
+		
+		User user = userRepository.getUser(username);
+		
+		return user;
+	}
+	
 }
